@@ -14,10 +14,10 @@ var cors = require("cors");
 var querystring = require("querystring");
 var cookieParser = require("cookie-parser");
 
-var client_id = process.env.CLIENT_ID; // your clientId
-var client_secret = process.env.CLIENT_SECRET; // Your secret\
+var client_id = "9294120850024bd5a858d8f737d821d6"; // your clientId
+var client_secret = "130ffb9ee7534341bdba008a6efba86b"; // Your secret\
 console.log("These are the ID:S", client_id, client_secret);
-var redirect_uri = "/callback"; // Your redirect uri
+var redirect_uri = "https://spotify-api.adaptable.app/callback"; // Your redirect uri
 
 const generateRandomString = (length) => {
   return crypto.randomBytes(60).toString("hex").slice(0, length);
@@ -35,6 +35,17 @@ app
 app.get("/login", function (req, res) {
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
+
+  console.log(
+    "This is stringify:",
+    querystring.stringify({
+      response_type: "code",
+      client_id: client_id,
+      scope: scope,
+      redirect_uri: redirect_uri,
+      state: state,
+    })
+  );
 
   // your application requests authorization
   var scope =
