@@ -6,7 +6,7 @@
  * For more information, read
  * https://developer.spotify.com/documentation/web-api/tutorials/code-flow
  */
-require('dotenv').config()
+require("dotenv").config();
 var express = require("express");
 var request = require("request");
 var crypto = require("crypto");
@@ -101,7 +101,7 @@ app.get("/callback", function (req, res) {
 
         // we can also pass the token to the browser to make requests from there
         res.redirect(
-          "http://localhost:5173/#" +
+          "https://spotify-playlist-clone.netlify.app/#" +
             querystring.stringify({
               access_token: access_token,
               refresh_token: refresh_token,
@@ -109,7 +109,7 @@ app.get("/callback", function (req, res) {
         );
       } else {
         res.redirect(
-          "http://localhost:5173/#" +
+          "https://spotify-playlist-clone.netlify.app/#" +
             querystring.stringify({
               error: "invalid_token",
             })
