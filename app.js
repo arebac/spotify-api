@@ -15,8 +15,9 @@ var querystring = require("querystring");
 var cookieParser = require("cookie-parser");
 
 var client_id = process.env.CLIENT_ID; // your clientId
-var client_secret = process.env.CLIENT_SECRET; // Your secret
-var redirect_uri = "https://spotify-api.adaptable.app"; // Your redirect uri
+var client_secret = process.env.CLIENT_SECRET; // Your secret\
+console.log("These are the ID:S", client_id, client_secret);
+var redirect_uri = "https://spotify-api.adaptable.app/callback"; // Your redirect uri
 
 const generateRandomString = (length) => {
   return crypto.randomBytes(60).toString("hex").slice(0, length);
