@@ -102,7 +102,7 @@ app.get("/callback", function (req, res) {
 
         // we can also pass the token to the browser to make requests from there
         res.redirect(
-          "https://spotify-playlist-clone.netlify.app/#" +
+          "https://spotify-playlist-clone.netlify.app/" +
             querystring.stringify({
               access_token: access_token,
               refresh_token: refresh_token,
@@ -110,7 +110,7 @@ app.get("/callback", function (req, res) {
         );
       } else {
         res.redirect(
-          "https://spotify-playlist-clone.netlify.app/#" +
+          "https://spotify-playlist-clone.netlify.app/" +
             querystring.stringify({
               error: "invalid_token",
             })
