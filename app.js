@@ -17,7 +17,7 @@ var cookieParser = require("cookie-parser");
 var client_id = process.env.CLIENT_ID; // your clientId
 var client_secret = process.env.CLIENT_SECRET; // Your secret\
 console.log("These are the ID:S", client_id, client_secret);
-var redirect_uri = "https://spotify-api.adaptable.app/callback"; // Your redirect uri
+var redirect_uri = "/callback"; // Your redirect uri
 
 const generateRandomString = (length) => {
   return crypto.randomBytes(60).toString("hex").slice(0, length);
@@ -102,7 +102,7 @@ app.get("/callback", function (req, res) {
 
         // we can also pass the token to the browser to make requests from there
         res.redirect(
-          "https://spotify-playlist-clone.netlify.app/" +
+          "https://spotify-playlist-clone.netlify.app/#" +
             querystring.stringify({
               access_token: access_token,
               refresh_token: refresh_token,
@@ -110,7 +110,7 @@ app.get("/callback", function (req, res) {
         );
       } else {
         res.redirect(
-          "https://spotify-playlist-clone.netlify.app/" +
+          "https://spotify-playlist-clone.netlify.app/#" +
             querystring.stringify({
               error: "invalid_token",
             })
