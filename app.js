@@ -16,7 +16,7 @@ var cookieParser = require("cookie-parser");
 
 var client_id = process.env.CLIENT_ID; // your clientId
 var client_secret = process.env.CLIENT_SECRET; // Your secret
-var redirect_uri = "http://localhost:4001/callback"; // Your redirect uri
+var redirect_uri = "https://spotify-api.adaptable.app"; // Your redirect uri
 
 const generateRandomString = (length) => {
   return crypto.randomBytes(60).toString("hex").slice(0, length);
